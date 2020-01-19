@@ -1,10 +1,4 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
@@ -12,21 +6,25 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            // Array declaration
-            string[] menuItems;
-            int[] menuItemPrices;
+            // Call class
+            Menu menuChoices = new Menu();
 
-            // Array Init
-            menuItems = new string[4]
+            // Call method
+            Color();
+
+            // Call MenuOption method from menuChoices class
+            menuChoices.MenuOption();
+        }
+
+        private static void Color()
+        {
+            // Turn background color white if statement is true
+            if (Console.BackgroundColor == ConsoleColor.Black)
             {
-                "Kapsalon: 6,50 euro", "XXL Kapsalon: 10,00 euro", "Turkse Pizza: 3,00 euro",
-                "Broodje döner 3,50 euro"
-            };
-
-            // Write everything to console
-            Console.WriteLine("Onze menu: ");
-            Array.ForEach(menuItems, Console.WriteLine);
-            Console.ReadLine();
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Clear();
+            }
         }
     }
 }
